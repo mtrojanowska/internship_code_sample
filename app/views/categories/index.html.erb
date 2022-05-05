@@ -1,0 +1,9 @@
+<h3>All categories</h3>
+
+<% @categories.each do |category| %>
+  <%= category.name %><br>
+<% end %><br>
+
+<% if current_writer && current_writer.admin? %>
+  <%= link_to "Create category", new_category_path %>|<br>
+<% end %>

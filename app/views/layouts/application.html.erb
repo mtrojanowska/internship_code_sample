@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CodeSample</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+
+  <% if writer_signed_in? %>
+    <%= link_to "Log out", destroy_writer_session_path, method: :delete %>|
+    <%= link_to "Edit Your profile", edit_writer_registration_path %>|
+      You are logged in as <%= current_writer.nickname %>
+  <% else %>
+    <%= link_to "Sing in", new_writer_registration_path %>|
+    <%= link_to "Log in", new_writer_session_path %>|
+  <% end %>
+
+  <%= link_to "Show all writers", writers_path %>|
+  <%= link_to "Show all stories", stories_path %>|
+    <%= link_to "Show all categories", categories_path %>|
+
+
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+<h1>Short stories list</h1>
+
+<% @stories.each do |story| %>
+  <%= story.title %> |<br>
+  <%= link_to "Read the story", story_path(story) %>|<br>
+<% end %>
+
+
+<% if writer_signed_in?  %>
+  <%= link_to "Create new story", new_story_path %><br>
+<% else %>
+  <%= link_to "Show all categories", categories_path %><br>
+<% end %>

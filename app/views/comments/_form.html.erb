@@ -1,0 +1,11 @@
+
+<h3>Leave a comment</h3>
+<% if writer_signed_in? %>
+  <%= form_with(model:[@story, @story.comments.build], local: true) do |f| %>
+    <%= render 'shared/error', model: @comment %>
+    <%= f.hidden_field :writer_id, value: current_writer.id %>
+    <%= f.label :_%><br>
+    <%= f.text_area :content %><br>
+    <%= f.submit "Add comment" %>
+  <% end %>
+<% end %>

@@ -1,0 +1,12 @@
+<h3>Comment content</h3>
+<%= comment.content %><br> by
+<%= comment.writer.nickname %>
+
+  <%= render partial: 'likes/button', locals: { likeable: comment} %>
+
+
+<%= comment.likes.count %> likes on comment.<br>
+
+<% if current_writer == comment.writer || current_writer == @story.writer %>
+  <%= link_to "Destroy comment", story_comment_path(@story, comment), method: :delete, data: {confirm: "Destroy the comment?"} %><br>
+<% end %>

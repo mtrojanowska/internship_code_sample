@@ -1,0 +1,4 @@
+<h3>List of writers</h3>
+<% @writers.each do |writer| %>
+  <%= link_to writer.nickname, writer_path(writer) %><br>
+<% end %>

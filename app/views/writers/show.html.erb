@@ -1,0 +1,4 @@
+<h3>All writer's stories</h3>
+<% @writer.stories.each do |story| %><br>
+  <%= link_to story.title, story_path(story) %>
+<% end %>
